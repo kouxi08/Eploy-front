@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  eploy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3300:3000"
+    tty: true
