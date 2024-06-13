@@ -1,6 +1,6 @@
 // pages/login.tsx
 import React from 'react';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../../components/LoginForm';
 
 const Login: React.FC = () => {
   return (

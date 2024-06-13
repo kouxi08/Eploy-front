@@ -1,6 +1,6 @@
 // pages/signup.tsx
 import React from 'react';
-import SignUpForm from '../components/SignUpForm';
+import SignUpForm from '../../components/SignUpForm';
 
 const SignUp: React.FC = () => {
   return (
