@@ -1,0 +1,112 @@
+/* LoginForm.module.css */
+.header {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 60px; /* 調整が必要な場合はこの高さを変更 */
+  width: auto;
+}
+
+.container {
+  width: 394px;
+  margin: 100px auto 0;
+  padding: 40px 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #707070;
+  text-align: center;
+}
+
+.line {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.label {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-left: 7px;
+  margin-bottom: 10px;
+  color: #707070;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createAccountButton {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #f0f0f0;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.extraContainer {
+  margin: 20px auto 0;
+  width: 394px;
+  text-align: center;
+}
+
+.otherLoginMethods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.otherLoginButton {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #f5f5f5;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.otherLoginButton img {
+  margin-right: 10px;
+}
