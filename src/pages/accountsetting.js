@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Header from '../../components/Header';
-import styles from '../../styles/AccountSetting.module.css';
+import Header from '../components/Header';
+import styles from '../styles/AccountSetting.module.css';
 
 const AccountSetting = ({ defaultUsername, defaultEmail }) => {
   const [username, setUsername] = useState(defaultUsername);

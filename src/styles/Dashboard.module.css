@@ -1,20 +1,22 @@
 .dashboard {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px; /* コンテナの最大横幅を1400pxに設定 */
   margin: 0 auto;
-  padding: 20px;
+  margin-top: 120px;
+  overflow: hidden; /* 親コンテナが子要素を包含するように */
 }
 
 .mainContainer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* 親コンテナが子要素を包含するように */
 }
 
 .search {
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-left: 40px;
   padding: 20px 0;
 }
 
@@ -38,50 +40,54 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(400px, 1fr)); /* カードの最小幅を300pxに設定し、3列表示を固定 */
+  gap: 20px; /* カード間の間隔を広げる */
   padding: 20px;
+  overflow-y: auto; /* 縦スクロールを可能に */
+  max-height: calc(100vh - 200px); /* ヘッダーや検索ボックスを考慮した高さ */
 }
 
 .cards > div {
-  margin: 20px; 
+  margin-bottom: 10px; /* 以前の margin-top の代わりに margin-bottom を追加 */
 }
+
 
 /* Small screens (mobile devices) */
 @media (max-width: 600px) {
   .cards {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 20px; /* モバイル画面でもカード間の間隔を少し広げる */
     padding: 10px;
   }
 
   .cards > div {
-    margin: 10px; 
+    margin: 10px;
   }
 }
 
 /* Medium screens (tablets) */
 @media (min-width: 601px) and (max-width: 992px) {
   .cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* カードの最小幅を250pxに設定 */
+    gap: 20px; /* カード間の間隔を広げる */
     padding: 15px;
   }
 
   .cards > div {
-    margin: 15px; 
+    margin: 15px;
   }
 }
 
 /* Large screens (desktops) */
 @media (min-width: 993px) {
   .cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(400px, 1fr)); /* デスクトップでは3列に固定 */
+    gap: 20px; /* カード間の間隔を広げる */
     padding: 20px;
   }
 
   .cards > div {
-    margin: 20px; 
+    margin: 10px;
+    margin-left: 20px;
   }
 }

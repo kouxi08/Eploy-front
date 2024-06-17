@@ -1,6 +1,5 @@
 .mainContainer {
     height: 100%;
-    background-color: #FAFAFA;
   }
   
   .contentContainer {
@@ -13,22 +12,31 @@
   }
   
   .title {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    color: #707070;
     margin-bottom: 20px;
     margin-top: 0;
     text-align: left; 
-    margin-left: -180px; 
+    margin-left: -250px; 
+    margin-top: 100px;
   }
   
   .settings {
     display: flex;
     flex-direction: column;
-    align-items: center; 
   }
   
   .settingSection {
+    color: #707070;
     width: 100%;
     margin-bottom: 20px;
+  }
+
+  .settingSection h2{
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
   }
   
   .input {
@@ -46,15 +54,15 @@
   
   .button {
     padding: 10px 20px;
-    background-color: #1976d2;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     cursor: pointer;
     border-radius: 8px;
   }
   
   .button:hover {
-    background-color: #155a9c;
+    background-color: white;
   }
   
   .divider {
