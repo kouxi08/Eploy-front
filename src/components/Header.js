@@ -13,11 +13,10 @@ const Header = () => {
   };
 
   const handleAccountSetting = () => {
-    router.push('/AccountSetting'); 
+    router.push('/accountSetting'); 
   };
 
   const handleLogout = () => {
-    // Add your logout logic here
     console.log('Logging out...');
   };
 
@@ -25,7 +24,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.row}>
         <div className={styles.logo}>
-          <img src="/logo.png" alt="Logo" />
+          <img src="/logo.png" alt="Logo" className={styles.logoImage} />
         </div>
         <div className={styles.profile} onClick={toggleBubble}>
           <IconamoonProfileCircleFill />
@@ -40,7 +39,8 @@ const Header = () => {
       </div>
 
       <nav className={styles.nav}>
-        <Link href="/Dashboard">Dashboard</Link>
+        <Link href="/dashboard">Dashboard</Link>
+        <Link href="#">Create</Link>
         <Link href="#">Deploy</Link>
         <Link href="#">Document</Link>
       </nav>

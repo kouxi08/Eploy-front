@@ -1,8 +1,9 @@
-import styles from '../components/ApplicationCard.module.css'; 
-import { Link } from './Link'; 
-import Github from './Github'; 
+import styles from '../components/ApplicationCard.module.css';
+import NextLink from 'next/link';
+import { Link as IconLink } from './Link'; // Use a different name for the icon
+import Github from './Github';
 
-const ApplicationCard = ({ name, url, status, link, github }) => {
+const ApplicationCard = ({ id, name, url, status, link, github }) => {
   const statusClasses = {
     running: styles.running,
     ContainerCreating: styles.containercreating,
@@ -18,21 +19,23 @@ const ApplicationCard = ({ name, url, status, link, github }) => {
   };
 
   return (
-    <div className={`${styles.card} ${statusClasses[status]}`}>
-      <div className={styles.statusIconContainer}>
-        <img src={statusIcons[status]} alt={`${status} icon`} className={styles.statusIcon} />
-        <p className={styles.cardTitle}>{name}</p>
+    // <NextLink href={`/applications/${id}`} passHref>
+      <div className={`${styles.card} ${statusClasses[status]}`}>
+        <div className={styles.statusIconContainer}>
+          <img src={statusIcons[status]} alt={`${status} icon`} className={styles.statusIcon} />
+          <p className={styles.cardTitle}>{name}</p>
+        </div>
+        <p className={styles.carddomain}>{url}</p>
+        <div className={styles.iconsContainer}>
+          <a href={link} target="_blank" rel="noopener noreferrer" className={styles.icon}>
+            <IconLink />
+          </a>
+          <a href={github} target="_blank" rel="noopener noreferrer" className={styles.icon}>
+            <Github />
+          </a>
+        </div>
       </div>
-      <p className={styles.carddomain}>{url}</p>
-      <div className={styles.iconsContainer}>
-        <a href={link} target="_blank" rel="noopener noreferrer" className={styles.icon}>
-          <Link /> 
-        </a>
-        <a href={github} target="_blank" rel="noopener noreferrer" className={styles.icon}>
-          <Github />
-        </a>
-      </div>
-    </div>
+    // </NextLink>
   );
 };
 
