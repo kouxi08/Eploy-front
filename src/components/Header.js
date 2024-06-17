@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   const handleAccountSetting = () => {
-    router.push('/accountSetting'); 
+    router.push('/accountsetting'); 
   };
 
   const handleLogout = () => {
