@@ -15,28 +15,32 @@ const DeployPage: React.FC = () => {
       <Header />
       <div className={styles.deploy}>
         <Head>
-          <title>Deploy</title>
-          <meta name="description" content="Deploy Application" />
+          <title>Create Dockerfile</title>
+          <meta name="description" content="Create Dockerfile" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <h1 className={styles.title}>Deploy</h1>
+        <h1 className={styles.title}>Create Dockerfile</h1>
         <div className={styles.formContainer}>
           <form>
             <div className={styles.formGroup}>
-              <label htmlFor="gitRepoUrl" className={styles.label}>Git repository URL</label>
-              <input type="text" id="gitRepoUrl" className={styles.input} />
+              <label htmlFor="Run time" className={styles.label}>Run time</label>
+              <input type="text" id="Run time" className={styles.input} />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="appName" className={styles.label}>Application Name</label>
-              <input type="text" id="appName" className={styles.input} />
+              <label htmlFor="Work dir" className={styles.label}>Work dir</label>
+              <input type="text" id="Work dir" className={styles.input} />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="port" className={styles.label}>Port</label>
-              <input type="text" id="port" className={styles.input} />
+              <label htmlFor="Package Manager" className={styles.label}>Package Manager</label>
+              <input type="text" id="Package Manager" className={styles.input} />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="dockerfileDir" className={styles.label}>Dockerfile dir</label>
-              <input type="text" id="dockerfileDir" className={styles.input} />
+              <label htmlFor="Start Command" className={styles.label}>Start Command</label>
+              <input type="text" id="Start Command" className={styles.input} />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="Port" className={styles.label}>Port</label>
+              <input type="text" id="Port" className={styles.input} />
             </div>
             <div className={styles.formGroup}>
               <div className={styles.envToggle} onClick={toggleEnvFields}>
