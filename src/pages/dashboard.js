@@ -1,14 +1,41 @@
 import Head from 'next/head';
-import path from 'path';
-import fs from 'fs/promises';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Dashboard.module.css';
 import Header from '../components/Header';
 import ApplicationCard from '../components/ApplicationCard';
 
-const Dashboard = ({ applications }) => {
+const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredApplications, setFilteredApplications] = useState(applications);
+  const [applications, setApplications] = useState([]);
+  const [filteredApplications, setFilteredApplications] = useState([]);
+
+  useEffect(() => {
+    const fetchApplications = async () => {
+      try {
+        // ローカルストレージからトークンを取得
+        const token = localStorage.getItem('token');
+        
+        const response = await fetch('/api/dashboard', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const data = await response.json();
+        
+        // データが配列であることを確認
+        if (Array.isArray(data)) {
+          setApplications(data);
+          setFilteredApplications(data);
+        } else {
+          console.error('Expected array but got:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching applications:', error);
+      }
+    };
+
+    fetchApplications();
+  }, []);
 
   useEffect(() => {
     const filterApps = () => {
@@ -50,7 +77,7 @@ const Dashboard = ({ applications }) => {
           />
         </div>
         <div className={styles.cards}>
-          {filteredApplications.map((app, index) => (
+          {Array.isArray(filteredApplications) && filteredApplications.map((app, index) => (
             <ApplicationCard 
               key={index} 
               id={app.id} // assuming each application has a unique `id`
@@ -66,17 +93,5 @@ const Dashboard = ({ applications }) => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'public', 'application.json');
-  const jsonData = await fs.readFile(filePath, 'utf8');
-  const data = JSON.parse(jsonData);
-
-  return {
-    props: {
-      applications: data.sites,
-    },
-  };
-}
 
 export default Dashboard;

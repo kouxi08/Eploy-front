@@ -16,15 +16,15 @@ const AccountSetting = ({ defaultUsername, defaultEmail }) => {
   };
 
   const handleSaveUsername = () => {
-    // ユーザー名
+    // ユーザー名保存ロジック
   };
 
   const handleSaveEmail = () => {
-    // メール
+    // メール保存ロジック
   };
 
   const handleDeleteAccount = () => {
-    // アカウント消去
+    // アカウント削除ロジック
   };
 
   return (
@@ -44,17 +44,19 @@ const AccountSetting = ({ defaultUsername, defaultEmail }) => {
       <Header />
       <div className={styles.contentContainer}>
         <h1 className={styles.title}>Account Setting</h1>
+        <hr className={styles.divider} />
         <div className={styles.settings}>
           <div className={styles.settingSection}>
             <h2>Username</h2>
             <p>This is your URL namespace within Eploy.</p>
-            <input
-              type="text"
-              value={username}
-              onChange={handleUsernameChange}
-              className={styles.input}
-            />
-            <div className={styles.buttonContainer}>
+            <div className={styles.settingRow}>
+              <input
+                type="text"
+                value={username}
+                placeholder="Test User"
+                onChange={handleUsernameChange}
+                className={styles.input}
+              />
               <button onClick={handleSaveUsername} className={styles.button}>
                 Save
               </button>
@@ -66,13 +68,14 @@ const AccountSetting = ({ defaultUsername, defaultEmail }) => {
           <div className={styles.settingSection}>
             <h2>Email</h2>
             <p>Enter the email addresses you want to use to log in with Eploy.</p>
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              className={styles.input}
-            />
-            <div className={styles.buttonContainer}>
+            <div className={styles.settingRow}>
+              <input
+                type="email"
+                value={email}
+                placeholder="hogehoge@gmail.com"
+                onChange={handleEmailChange}
+                className={styles.input}
+              />
               <button onClick={handleSaveEmail} className={styles.button}>
                 Save
               </button>
@@ -81,10 +84,11 @@ const AccountSetting = ({ defaultUsername, defaultEmail }) => {
 
           <hr className={styles.divider} />
 
-          <div className={styles.settingSection}>
+          <div className={styles.settingSection1}>
             <h2 className={styles.deleteTitle}>Delete Account</h2>
             <p className={styles.deleteTitle}>
-              Permanently remove your Personal Account and all of its contents from the Eploy platform. This action is not reversible, so please continue with caution.
+              Permanently remove your Personal Account and all of its contents from the Eploy platform. This action is
+              not reversible, so please continue with caution.
             </p>
             <div className={styles.buttonContainer}>
               <button onClick={handleDeleteAccount} className={styles.deleteButton}>
@@ -92,6 +96,9 @@ const AccountSetting = ({ defaultUsername, defaultEmail }) => {
               </button>
             </div>
           </div>
+
+          <hr className={styles.divider} />
+          
         </div>
       </div>
     </div>
