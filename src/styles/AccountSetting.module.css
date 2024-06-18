@@ -16,12 +16,14 @@
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     color: #707070;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     margin-top: 0;
     text-align: left; 
     margin-left: -250px; 
     margin-top: 100px;
   }
+
+  
   
   .settings {
     display: flex;
@@ -32,19 +34,53 @@
     color: #707070;
     width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   .settingSection h2{
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    margin-left: -170px;
+    color: #2A2A2A;
+  }
+
+  .settingSection1 h2{
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    margin-left: -170px;
+    color: #DB0202;
+  }
+
+  .settingSection p {
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    margin-left: -160px;
+    margin-top: 15px;
+    color: #2A2A2A;
+  }
+
+  .settingSection1 p {
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    margin-left: -160px;
+    margin-top: 15px;
+    color: #DB0202;
   }
   
   .input {
-    width: 100%;
+    flex: 1;
     padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-top: 35px;
+    border: 1px solid #000000;
     border-radius: 8px;
+    margin-right: 10px;
+    margin-left: -160px;
+  }
+
+  .input::placeholder {
+    color: #919191; /* 薄いグレー色 */
+    opacity: 3; /* プレースホルダーの透明度 */
   }
   
   .buttonContainer {
@@ -54,12 +90,21 @@
   
   .button {
     padding: 10px 20px;
-    background-color: white;
+    background-color: #ffffff;
+    margin-top: 35px;
     color: black;
-    border: none;
+    border: 1px solid #000000;
     cursor: pointer;
     border-radius: 8px;
+    margin-left: 400px;
   }
+  
+  .settingRow {
+    display: flex;
+    align-items: center;
+    width: 120%;
+  }
+  
   
   .button:hover {
     background-color: white;
@@ -68,8 +113,9 @@
   .divider {
     margin: 20px 0;
     border: none;
-    border-top: 1px solid #ccc;
-    width: 100%;
+    border-top: 1px solid #000000;
+    margin-left: -250px;
+    width: 190%;
   }
   
   .deleteTitle {
@@ -83,6 +129,7 @@
     border: none;
     cursor: pointer;
     border-radius: 8px;
+    margin-right: -180px;
   }
   
   .deleteButton:hover {

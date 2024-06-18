@@ -17,6 +17,10 @@ const LoginForm: React.FC = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const idToken = await userCredential.user.getIdToken();
+      
+      // トークンをローカルストレージに保存
+      localStorage.setItem('token', idToken);
+
       await fetch('/api/login', {
         method: 'POST',
         headers: {
@@ -37,6 +41,10 @@ const LoginForm: React.FC = () => {
     try {
       const userCredential = await signInWithPopup(auth, provider);
       const idToken = await userCredential.user.getIdToken();
+      
+      // トークンをローカルストレージに保存
+      localStorage.setItem('token', idToken);
+
       await fetch('/api/login', {
         method: 'POST',
         headers: {
