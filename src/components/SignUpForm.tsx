@@ -5,6 +5,7 @@ import { auth } from '../lib/firebase'; // Firebaseの初期化
 import styles from './SignUpForm.module.css';
 
 const SignUpForm: React.FC = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +23,7 @@ const SignUpForm: React.FC = () => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${idToken}`,
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, username }),
       });
       router.push('/users/login'); // 登録後にLoginFormにリダイレクト
     } catch (error: any) {
@@ -52,7 +53,7 @@ const SignUpForm: React.FC = () => {
       <form onSubmit={handleSignUp}>
         <div>
           <label htmlFor="username" className={styles.label}>User Name</label>
-          <input type="text" id="username" placeholder="User Name" className={styles.input} />
+          <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="User Name" className={styles.input} />
         </div>
         <div>
           <label htmlFor="email" className={styles.label}>Email</label>

@@ -16,8 +16,9 @@ const LoginForm: React.FC = () => {
     setError(null); // エラーメッセージをリセット
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const idToken = await userCredential.user.getIdToken();
-      
+      const user = userCredential.user;
+      const idToken = await user.getIdToken();
+
       // トークンをローカルストレージに保存
       localStorage.setItem('token', idToken);
 
@@ -29,7 +30,7 @@ const LoginForm: React.FC = () => {
         },
         body: JSON.stringify({ email }),
       });
-      router.push('/dashboard'); 
+      router.push('/dashboard');
     } catch (error) {
       console.error(error);
       setError('ログインに失敗しました。メールアドレスとパスワードを確認してください。');
@@ -41,7 +42,7 @@ const LoginForm: React.FC = () => {
     try {
       const userCredential = await signInWithPopup(auth, provider);
       const idToken = await userCredential.user.getIdToken();
-      
+
       // トークンをローカルストレージに保存
       localStorage.setItem('token', idToken);
 
@@ -58,6 +59,10 @@ const LoginForm: React.FC = () => {
       console.error(error);
       setError('OAuthログインに失敗しました。再度お試しください。');
     }
+  };
+
+  const handleCreateAccount = () => {
+    router.push('/users/signup');
   };
 
   return (
@@ -98,7 +103,7 @@ const LoginForm: React.FC = () => {
           </div>
         </form>
         <div className={styles.createAccountContainer}>
-          <button type="button" className={styles.createAccountButton}>
+          <button type="button" className={styles.createAccountButton} onClick={handleCreateAccount}>
             Create an account
           </button>
         </div>
