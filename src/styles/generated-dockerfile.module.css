@@ -1,0 +1,119 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 60px; /* 固定ヘッダーに合わせてパディングを調整 */
+  }
+  
+  .header {
+    width: 100%;
+    height: 60px; /* 固定ヘッダーの高さを調整 */
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .formContainer {
+    width: 1000px;
+    padding: 20px;
+    border: 1px solid #d0caca;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #707070;
+  }
+  
+  .title {
+    font-size: 30px;
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    color: #707070;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: left;  
+    margin: 0px 0px 50px;
+  }
+  
+
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column; /* 各ラベルと入力フィールドを垂直に配置 */
+    flex: 1 1 48%; /* 各フォームグループが48%の幅を占め、成長・縮小を許可 */
+    margin-bottom: 20px; /* 各フォームグループ間のスペースを追加 */
+  }
+  
+  .label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .docker{
+    width: 900px;
+    height: 350px;
+    background-color: #414141;
+    color: white;
+    padding: 20px;
+    font-size: 20px; /* 文字サイズを調整 */
+    line-height: 1.5; /* 行の高さを調整 */
+    white-space: pre-wrap; /* 改行を表示 */
+    overflow-x: auto; /* 横スクロールバーを表示 */
+    border-radius: 10px; /* 角を丸くする */
+    margin: 0 0 40px;
+  }
+  
+  .lineNumber {
+    display: inline-block;
+    width: 40px; /* 行番号の幅 */
+    text-align: right; /* 右寄せ */
+    margin-right: 10px; /* 行番号と｜の間隔 */
+}
+  
+  
+  .dockerfilebox{
+    margin: 0 30px 50px;
+  }
+
+  .dockerfilebox p {
+    margin-top: 40px;
+}
+  
+  .button {
+    width: 900px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .button:hover {
+    background-color: #444;
+  }
+  
+  .addButton {
+    width: auto; /* 必要なスペースのみを占有 */
+    margin-top: 10px; /* 入力フィールドと追加ボタンの間にスペースを追加 */
+  }
+  
+  .envContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 環境変数の入力フィールド間のスペースを追加 */
+  }
+  
+  .envInput {
+    flex: 1;
+  }
+  

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import styles from '../../styles/DeployPage.module.css';
+import styles from '../../styles/create.module.css';
 import Header from '../../components/Header';
 
 const DeployPage: React.FC = () => {
@@ -65,7 +65,8 @@ const DeployPage: React.FC = () => {
             {/* Node Version */}
             <div className={styles.formGroup}>
               <label htmlFor="Node Version" className={styles.label}>Node Version</label>
-              <select value={nodeVersion}  onChange={(e) => setNodeVersion(e.target.value)} required className={styles.input} >
+              <div className={styles.pulldown}>
+              <select value={nodeVersion}  onChange={(e) => setNodeVersion(e.target.value)} required  >
                 <option value="latest">latest</option>  
                 <option value="22.3">22.3</option>
                 <option value="22">22</option>
@@ -73,16 +74,19 @@ const DeployPage: React.FC = () => {
                 <option value="20">20</option>
                 <option value="20-slim">20-slim</option>
               </select>
+              </div>
             </div>
             {/* Package Manager */}
             <div className={styles.formGroup}>
               <label htmlFor="Package Manager" className={styles.label}>Package Manager</label>
-              <select value={packageManager} onChange={(e) => setPackageManager(e.target.value)} required  className={styles.input} >
+              <div className={styles.pulldown}>
+              <select value={packageManager} onChange={(e) => setPackageManager(e.target.value)} required  >
                 <option value="npm">npm</option>  
                 <option value="pnpm">pnpm</option>
                 <option value="yarn">yarn</option>
                 <option value="bun">bun</option>
               </select>
+              </div>
             </div>
             {/* Work Dir */}
             <div className={styles.formGroup}>
