@@ -1,0 +1,10 @@
+{
+    "version": "FROM node:", 
+    "workdir": "WORKDIR ",
+    "copycommand": "COPY ",
+    "runcommand": "RUN ",
+    "cmdcommand": "CMD ",
+    "copydir": ". .",
+    "port": "ENV PORT=",
+    "expose": "EXPOSE "   
+}
