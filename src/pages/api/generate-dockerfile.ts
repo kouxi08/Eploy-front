@@ -41,7 +41,7 @@ const handler = async(req: any, res: any) => {
     };
 
     const selectedPackageManager: PackageManagerCommands = packageCommands[packageManager as keyof PackageManagerConfig]
-    const jsonFilePath = '/usr/src/app/src/create-template.json'
+    const jsonFilePath = 'src/create-template.json'
     try{
         const data = await fs.readFile(jsonFilePath, 'utf8');
         const config = JSON.parse(data);
