@@ -5,14 +5,14 @@ import Github from './Github';
 
 const ApplicationCard = ({ id, name, url, status, link, github }) => {
   const statusClasses = {
-    running: styles.running,
+    Running: styles.running,
     ContainerCreating: styles.containercreating,
     Error: styles.error,
     Unknown: styles.unknown,
   };
 
   const statusIcons = {
-    running: '/icons/Runningicon.png',
+    Running: '/icons/Runningicon.png',
     ContainerCreating: '/icons/ContainerCreatingicon.png',
     Error: '/icons/ErrorIcon.png',
     Unknown: '/icons/UnknownIcon.png',

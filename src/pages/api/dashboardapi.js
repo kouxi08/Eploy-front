@@ -1,20 +1,10 @@
-// pages/api/dashboardapi.js
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      const authHeader = req.headers.authorization;
-      if (!authHeader) {
-        return res.status(401).json({ message: 'Authorization header is missing' });
-      }
-
-      const token = authHeader.split(' ')[1];
-      if (!token) {
-        return res.status(401).json({ message: 'Token is missing' });
-      }
-
-      const response = await fetch('http://localhost:8080/dashboard', {
+      // '1'を直接使用してGoバックエンドにリクエストを送信
+      const response = await fetch('http://go:8088/dashboard', {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': 'Bearer 1'
         }
       });
 
@@ -23,6 +13,7 @@ export default async function handler(req, res) {
       }
 
       const data = await response.json();
+      console.log(data);
       res.status(200).json(data);
     } catch (error) {
       console.error('Error fetching data from Go backend:', error);
