@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
-  padding-top: 60px; /* 固定ヘッダーに合わせてパディングを調整 */
+  padding-top: 60px; /* Adjust to account for fixed header */
 }
 
 .header {
   width: 100%;
-  height: 60px; /* 固定ヘッダーの高さを調整 */
+  height: 60px; /* Fixed header height */
   background-color: #ffffff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -29,31 +29,37 @@
   border-radius: 8px;
   background-color: #f9f9f9;
   color: #707070;
+  position: sticky;
+  overflow: scroll;
+  margin-top: 65px; /* Add margin to push formContainer below fixed header */
 }
 
 .title {
   font-size: 30px;
-  font-weight: 100; /* Regularフォントウェイト */
-  font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+  font-weight: 100;
+  font-family: Arial, sans-serif;
   color: #707070;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   margin-top: 0;
-  text-align: left;  
-  margin: 0px 0px 50px;
+  text-align: left;
+  position: sticky;
+  top: 120px; /* Account for fixed header height */
+  padding: 10px 0; /* Ensure the sticky title has padding */
+  z-index: 100;
 }
 
 .form {
   display: flex;
-  flex-wrap: wrap; /* フォームを2列に配置 */
-  gap: 2%; /* フォームグループ間のスペースを追加 */
-  width: 100%; /* フォームが全幅を使用するように */
+  flex-wrap: wrap;
+  gap: 2%;
+  width: 100%;
 }
 
 .formGroup {
   display: flex;
-  flex-direction: column; /* 各ラベルと入力フィールドを垂直に配置 */
-  flex: 1 1 48%; /* 各フォームグループが48%の幅を占め、成長・縮小を許可 */
-  margin-bottom: 20px; /* 各フォームグループ間のスペースを追加 */
+  flex-direction: column;
+  flex: 1 1 48%;
+  margin-bottom: 20px;
 }
 
 .label {
@@ -62,7 +68,7 @@
 }
 
 .input {
-  width: 100%; /* 入力フィールドがフォームグループの全幅を使用するように */
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -72,7 +78,7 @@
 }
 
 .button {
-  width: 100%; 
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 4px;
@@ -89,16 +95,23 @@
 }
 
 .addButton {
-  width: auto; /* 必要なスペースのみを占有 */
-  margin-top: 10px; /* 入力フィールドと追加ボタンの間にスペースを追加 */
+  width: auto;
+  margin-top: 10px;
 }
 
 .envContainer {
   display: flex;
   align-items: center;
-  gap: 10px; /* 環境変数の入力フィールド間のスペースを追加 */
+  gap: 10px;
 }
 
 .envInput {
   flex: 1;
+}
+
+.envFieldsContainer {
+  overflow: auto; /* Use auto to enable scrolling when content exceeds max-height */
+  max-height: 300px; /* Initial max-height */
+  transition: max-height 0.3s ease-in-out;
+  margin-top: 0px; /* Add margin to separate from above content */
 }
