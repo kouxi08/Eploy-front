@@ -11,10 +11,10 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          throw new Error('No token found');
-        }
+        const token = "1"
+        // if (!token) {
+        //   throw new Error('No token found');
+        // }
 
         const response = await fetch('/api/dashboardapi', {
           headers: {
@@ -27,8 +27,8 @@ const Dashboard = () => {
         }
 
         const data = await response.json();
-        setApplications(data);
-        setFilteredApplications(data);
+        setApplications(data.sites);
+        setFilteredApplications(data.sites);
       } catch (error) {
         console.error('Error fetching applications:', error);
       }
