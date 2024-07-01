@@ -95,7 +95,12 @@ const DeployPage: React.FC = () => {
             {/* Env */}
             <div className={styles.formGroup}>
               <div className={styles.envToggle} onClick={toggleEnvFields}>
-                <label className={styles.label}>∨ Environmental Variables</label>
+                <img 
+                  src={showEnvFields ? '/state_toggle.png' : '/toggle.png'} 
+                  alt="toggle icon" 
+                  className={styles.icon} 
+                />
+                <label className={styles.label}>Environmental Variables</label>
               </div>
               <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '100px' : '0' }}>
                 {showEnvFields &&

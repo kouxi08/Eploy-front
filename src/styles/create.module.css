@@ -42,7 +42,7 @@
   margin-top: 0;
   text-align: left;
   position: sticky;
-  top: 130px; /* Account for fixed header height */
+  top: 120px; /* Account for fixed header height */
   padding: 10px 0; /* Ensure the sticky title has padding */
   z-index: 100;
 }
@@ -134,4 +134,16 @@
   max-height: 300px; /* Initial max-height */
   transition: max-height 0.3s ease-in-out;
   margin-top: 0px; /* Add margin to separate from above content */
+}
+
+.envToggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2.5px;
 }
