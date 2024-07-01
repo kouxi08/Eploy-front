@@ -11,11 +11,11 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          throw new Error('No token found');
-        }
-
+        // const token = localStorage.getItem('token');
+        // if (!token) {
+        //   throw new Error('No token found');
+        // }
+        const token = "1"
         const response = await fetch('/api/dashboardapi', {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -27,8 +27,9 @@ const Dashboard = () => {
         }
 
         const data = await response.json();
-        setApplications(data);
-        setFilteredApplications(data);
+        console.log(data);
+        setApplications(data.sites);
+        setFilteredApplications(data.sites);
       } catch (error) {
         console.error('Error fetching applications:', error);
       }

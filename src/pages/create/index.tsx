@@ -70,17 +70,17 @@ const DeployPage: React.FC = () => {
                 <option value="20">20</option>
                 <option value="20-slim">20-slim</option>
               </select>
-              </div>
             </div>
             {/* Package Manager */}
             <div className={styles.formGroup}>
               <label htmlFor="Package Manager" className={styles.label}>Package Manager</label>
               <select value={packageManager} onChange={(e) => setPackageManager(e.target.value)} required className={styles.input} >
-                <option value="npm">npm</option>  
+                <option value="npm">npm</option>
                 <option value="pnpm">pnpm</option>
                 <option value="yarn">yarn</option>
                 <option value="bun">bun</option>
               </select>
+              </div>
             </div>
             {/* Work Dir */}
             <div className={styles.formGroup}>

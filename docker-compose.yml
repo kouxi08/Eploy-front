@@ -10,3 +10,8 @@ services:
     ports:
       - "3300:3000"
     tty: true
+    networks:
+          - eploy
+networks:
+    eploy:
+     external: true
