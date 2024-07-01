@@ -59,7 +59,7 @@
   display: flex;
   flex-direction: column; /* 各ラベルと入力フィールドを垂直に配置 */
   flex: 1 1 48%; /* 各フォームグループが48%の幅を占め、成長・縮小を許可 */
-  margin-bottom: 20px; /* 各フォームグループ間のスペースを追加 */
+  margin-bottom: 20px;
 }
 
 .label {
