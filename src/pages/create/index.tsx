@@ -62,14 +62,15 @@ const DeployPage: React.FC = () => {
             <div className={styles.formGroup}>
               <label htmlFor="Node Version" className={styles.label}>Node Version</label>
               <div className={styles.pulldown}>
-              <select value={nodeVersion} onChange={(e) => setNodeVersion(e.target.value)} required  >
-                <option value="latest">latest</option>  
-                <option value="22.3">22.3</option>
-                <option value="22">22</option>
-                <option value="22-slim">22-slim</option>
-                <option value="20">20</option>
-                <option value="20-slim">20-slim</option>
-              </select>
+                <select value={nodeVersion} onChange={(e) => setNodeVersion(e.target.value)} required  >
+                  <option value="latest">latest</option>  
+                  <option value="22.3">22.3</option>
+                  <option value="22">22</option>
+                  <option value="22-slim">22-slim</option>
+                  <option value="20">20</option>
+                  <option value="20-slim">20-slim</option>
+                </select>
+              </div>
             </div>
             {/* Package Manager */}
             <div className={styles.formGroup}>
@@ -80,7 +81,6 @@ const DeployPage: React.FC = () => {
                 <option value="yarn">yarn</option>
                 <option value="bun">bun</option>
               </select>
-              </div>
             </div>
             {/* Work Dir */}
             <div className={styles.formGroup}>
@@ -95,7 +95,12 @@ const DeployPage: React.FC = () => {
             {/* Env */}
             <div className={styles.formGroup}>
               <div className={styles.envToggle} onClick={toggleEnvFields}>
-                <label className={styles.label}>∨ Environmental Variables</label>
+                <img 
+                  src={showEnvFields ? '/state_toggle.png' : '/toggle.png'} 
+                  alt="toggle icon" 
+                  className={styles.icon} 
+                />
+                <label className={styles.label}>Environmental Variables</label>
               </div>
               <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '100px' : '0' }}>
                 {showEnvFields &&

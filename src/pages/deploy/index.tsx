@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import styles from '../../styles/DeployPage.module.css';
 import Header from '../../components/Header';
 
@@ -11,7 +12,8 @@ const DeployPage: React.FC = () => {
   const [appName, setappName] = useState('')
   const [port, setPort] = useState('');
   const [dockerDir, setdockerDir] = useState('')
-
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   
   const fetchApplications = async () => {
     const filteredEnvFields = envFields.filter(env => env.name !== '' && env.value !== '');
@@ -43,14 +45,23 @@ const DeployPage: React.FC = () => {
 
   const handleEnvFieldChange = (id: number, fieldName: 'name' | 'value', value: string) => {
     const newEnvFields = [...envFields];
-     const index = newEnvFields.findIndex((env) => env.id === id);
-     if (index !== -1) {
-       newEnvFields[index][fieldName] = value;
-       setEnvFields(newEnvFields);
-     }
-   };
+    const index = newEnvFields.findIndex((env) => env.id === id);
+    if (index !== -1) {
+      newEnvFields[index][fieldName] = value;
+      setEnvFields(newEnvFields);
+    }
+  };
 
-  
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+
+    // Simulate a delay for loading screen demo
+    setTimeout(() => {
+      setLoading(false);
+      router.push('/next-page'); // Example next page route
+    }, 2000); // 2 seconds delay
+  };
 
   return (
     <div className={styles.pageContainer}>
@@ -63,7 +74,7 @@ const DeployPage: React.FC = () => {
         </Head>
         <h1 className={styles.title}>Deploy</h1>
         <div className={styles.formContainer}>
-          <form onSubmit={fetchApplications}>
+          <form onSubmit={handleSubmit}>
             {/* git URL */}
             <div className={styles.formGroup}>
               <label htmlFor="gitRepoUrl" className={styles.label}>Git repository URL</label>
@@ -87,30 +98,40 @@ const DeployPage: React.FC = () => {
             {/* Env */}
             <div className={styles.formGroup}>
               <div className={styles.envToggle} onClick={toggleEnvFields}>
-                <label className={styles.label}>∨ Environmental Variables</label>
+                <img 
+                  src={showEnvFields ? '/state_toggle.png' : '/toggle.png'} 
+                  alt="toggle icon" 
+                  className={styles.icon} 
+                />
+                <label className={styles.label}>Environmental Variables</label>
               </div>
-              {showEnvFields && 
-                 envFields.map((env, index) => (
-                    <div className={styles.envContainer}>
-                      <input type="text" placeholder="Name" className={styles.input}  onChange={(e)=>handleEnvFieldChange(index, "name", e.target.value)}/>
-                      <input type="text" placeholder="Value" className={styles.input} onChange={(e)=>handleEnvFieldChange(index, "value", e.target.value)} />
-                     {/* 追加・削除ボタン */}
-                    {index === envFields.length - 1 && (
-                      <button type="button" className={`${styles.button} ${styles.addButton}`} onClick={addEnvField}>
-                        Add
-                      </button>
-                     )}
-                    {index !== envFields.length - 1  && (
-                      <button type="button" className={`${styles.button} ${styles.addButton}`} onClick={() => deleteEnvField(env.id)}>
+              <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '100px' : '0' }}>
+                {showEnvFields &&
+                  envFields.map((env, index) => (
+                    <div key={index} className={styles.envContainer}>
+                      <input type="text" placeholder="Name" className={styles.input} value={env.name} onChange={(e) => handleEnvFieldChange(env.id, 'name', e.target.value)} />
+                      <input type="text" placeholder="Value" className={styles.input} value={env.value} onChange={(e) => handleEnvFieldChange(env.id, 'value', e.target.value)} />
+                      {index === envFields.length - 1 ? (
+                        <button type="button" className={`${styles.button} ${styles.addButton}`} onClick={addEnvField}>
+                          Add
+                        </button>
+                      ) : (
+                        <button type="button" className={`${styles.button} ${styles.addButton}`} onClick={() => deleteEnvField(env.id)}>
                           Del
-                      </button>
-                     )}
+                        </button>
+                      )}
                     </div>
-                ))}
+                  ))}
+              </div>
             </div>
-            <button type="submit" className={styles.button}>Deploy</button>
+            <button type="submit" className={styles.button}>Create</button>
           </form>
         </div>
+        {loading && (
+          <div className={styles.loadingOverlay}>
+            <div className={styles.loadingSpinner}></div>
+          </div>
+        )}
       </div>
     </div>
   );
