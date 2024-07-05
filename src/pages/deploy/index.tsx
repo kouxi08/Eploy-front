@@ -16,19 +16,28 @@ const DeployPage: React.FC = () => {
   const router = useRouter();
   
   const fetchApplications = async () => {
-    const filteredEnvFields = envFields.filter(env => env.name !== '' && env.value !== '');
-    const response = await fetch('../api/deploy', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({gitUrl, appName, port, dockerDir, envFields: filteredEnvFields}),
-    });
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('No token found');
+      }
+      const filteredEnvFields = envFields.filter(env => env.name !== '' && env.value !== '');
+      const response = await fetch('/api/deploy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+           'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({gitUrl, appName, port, dockerDir, envFields: filteredEnvFields}),
+      });
 
-    const data = await response.json();
-    console.log(data);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching applications:', error);
+    }
   };
- 
+
   const addEnvField = () => {
     const nextId = envFields.length > 0 ? envFields[envFields.length - 1].id + 1 : 0;
     setEnvFields([...envFields, { id: nextId, name: '', value: '' }]);
@@ -98,10 +107,10 @@ const DeployPage: React.FC = () => {
             {/* Env */}
             <div className={styles.formGroup}>
               <div className={styles.envToggle} onClick={toggleEnvFields}>
-                <img 
+                <img
                   src={showEnvFields ? '/state_toggle.png' : '/toggle.png'} 
-                  alt="toggle icon" 
-                  className={styles.icon} 
+                  alt="toggle icon"
+                  className={styles.icon}
                 />
                 <label className={styles.label}>Environmental Variables</label>
               </div>

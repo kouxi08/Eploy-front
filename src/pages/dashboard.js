@@ -11,11 +11,11 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        // const token = localStorage.getItem('token');
-        // if (!token) {
-        //   throw new Error('No token found');
-        // }
-        const token = "1"
+        const token = localStorage.getItem('token');
+        if (!token) {
+          throw new Error('No token found');
+        }
+
         const response = await fetch('/api/dashboardapi', {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -28,8 +28,8 @@ const Dashboard = () => {
 
         const data = await response.json();
         console.log(data);
-        setApplications(data.sites);
-        setFilteredApplications(data.sites);
+        setApplications(data.projects);
+        setFilteredApplications(data.projects);
       } catch (error) {
         console.error('Error fetching applications:', error);
       }
@@ -42,7 +42,7 @@ const Dashboard = () => {
     const filterApps = () => {
       setFilteredApplications(
         applications.filter(app =>
-          app.application_name.toLowerCase().includes(searchTerm.toLowerCase())
+          app.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
       );
     };
@@ -70,11 +70,11 @@ const Dashboard = () => {
             <ApplicationCard
               key={index}
               id={app.id} // assuming each application has a unique id
-              name={app.application_name}
+              name={app.name}
               url={app.domain}
               status={app.status}
               link={app.domain}
-              github={app.github_url}
+              github={app.git_repo_url}
             />
           ))}
         </div>
