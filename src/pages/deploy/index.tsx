@@ -61,16 +61,6 @@ const DeployPage: React.FC = () => {
     }
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
-
-    // Simulate a delay for loading screen demo
-    setTimeout(() => {
-      setLoading(false);
-      router.push('/next-page'); // Example next page route
-    }, 2000); // 2 seconds delay
-  };
 
   return (
     <div className={styles.pageContainer}>
@@ -83,7 +73,7 @@ const DeployPage: React.FC = () => {
         </Head>
         <h1 className={styles.title}>Deploy</h1>
         <div className={styles.formContainer}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={fetchApplications}>
             {/* git URL */}
             <div className={styles.formGroup}>
               <label htmlFor="gitRepoUrl" className={styles.label}>Git repository URL</label>

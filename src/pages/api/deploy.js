@@ -2,9 +2,9 @@ export default async function handler(req, res) {
     const {  gitUrl, appName, port, dockerDir, envFields} = req.body;
     const dataToSend = {
         name: appName,
-        url: gitUrl,
+        git_repo_url: gitUrl,
         port: port,
-        envVars: envFields.map(env => ({
+        environments: envFields.map(env => ({
             name: env.name,
             value: env.value
         }))
