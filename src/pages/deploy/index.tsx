@@ -10,18 +10,21 @@ const DeployPage: React.FC = () => {
   const [envFields, setEnvFields] = useState([{ id: 0, name: '', value: '' }]);
   const [gitUrl, setgitUrl] = useState('')
   const [appName, setappName] = useState('')
-  const [port, setPort] = useState('');
+  const [port, setPort] = useState<number | undefined>(undefined);
   const [dockerDir, setdockerDir] = useState('')
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  
-  const fetchApplications = async () => {
+
+  const fetchApplications = async (event: React.FormEvent) => {
+     event.preventDefault();
     try {
       const token = localStorage.getItem('token');
       if (!token) {
         throw new Error('No token found');
       }
       const filteredEnvFields = envFields.filter(env => env.name !== '' && env.value !== '');
+
+      setLoading(true);
       const response = await fetch('/api/deploy', {
         method: 'POST',
         headers: {
@@ -31,11 +34,29 @@ const DeployPage: React.FC = () => {
         body: JSON.stringify({gitUrl, appName, port, dockerDir, envFields: filteredEnvFields}),
       });
 
+      if(!response.ok) {
+        throw new Error('Failed to deploy: ' + response.statusText);
+      } 
       const data = await response.json();
-      console.log(data);
+      console.log('Deployment successful:', data);
+      console.log("aaa")
+      setLoading(false);
+      router.push('/dashboard');
+
     } catch (error) {
       console.error('Error fetching applications:', error);
+      setLoading(false); 
     }
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      router.push('/dashboard'); 
+    }, 10000); // 2 seconds delay
+    
   };
 
   const addEnvField = () => {
@@ -61,6 +82,10 @@ const DeployPage: React.FC = () => {
     }
   };
 
+  const handlePortChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(event.target.value, 10); // 入力値を整数に変換
+    setPort(value);
+  };
 
   return (
     <div className={styles.pageContainer}>
@@ -87,7 +112,7 @@ const DeployPage: React.FC = () => {
             {/* port */}
             <div className={styles.formGroup}>
               <label htmlFor="port" className={styles.label}>Port</label>
-              <input type="text" id="port" onChange={(e)=> setPort(e.target.value)} className={styles.input} required/>
+              <input  type="number" id="port"  onChange={handlePortChange} className={styles.input} required/>
             </div>
             {/* docker Dir */}
             <div className={styles.formGroup}>
@@ -104,7 +129,7 @@ const DeployPage: React.FC = () => {
                 />
                 <label className={styles.label}>Environmental Variables</label>
               </div>
-              <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '100px' : '0' }}>
+              <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '200px' : '0' }}>
                 {showEnvFields &&
                   envFields.map((env, index) => (
                     <div key={index} className={styles.envContainer}>

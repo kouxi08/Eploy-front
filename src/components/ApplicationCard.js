@@ -29,7 +29,7 @@ const ApplicationCard = ({ id, name, url, status, link, github }) => {
         </div>
         <p className={styles.carddomain}>{url}</p>
         <div className={styles.iconsContainer}>
-          <a href={link} target="_blank" rel="noopener noreferrer" className={styles.icon}>
+          <a href={`http://${link}`} target="_blank" rel="noopener noreferrer" className={styles.icon}>
             <IconLink />
           </a>
           <a href={github} target="_blank" rel="noopener noreferrer" className={styles.icon}>
