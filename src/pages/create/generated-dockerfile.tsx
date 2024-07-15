@@ -7,8 +7,10 @@ import Header from '../../components/Header';
 
 export default function GeneratedDockerfile() {
     const router = useRouter();
-    const {nodeVersion, packageManager, workDir, port} = router.query;
+    const {nodeVersion, packageManager, workDir, port, envFields} = router.query;
     const [dockerfile, setDockerfile] = useState('');
+
+    console.log(envFields)
 
 
 
@@ -18,7 +20,7 @@ export default function GeneratedDockerfile() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ nodeVersion, packageManager, workDir, port }),
+          body: JSON.stringify({ nodeVersion, packageManager, workDir, port, envFields }),
         });
     
         const data = await response.json();
@@ -61,7 +63,7 @@ export default function GeneratedDockerfile() {
                             <pre className={styles.docker}>
                                 {dockerfile.split('\n').map((line, index) => (
                                     <div key={index}>
-                                        <span className={styles.lineNumber}>{index + 1}｜  </span>
+                                        <span className={styles.lineNumber}>{index + 1} |</span>
                                         {line}
                                     </div>
                                 ))}

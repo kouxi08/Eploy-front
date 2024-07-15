@@ -1,10 +1,19 @@
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
-      // '1'を直接使用してGoバックエンドにリクエストを送信
-      const response = await fetch('http://go:8088/dashboard', {
+      const authHeader = req.headers.authorization;
+      if (!authHeader) {
+        return res.status(401).json({ message: 'Authorization header is missing' });
+      }
+
+      const token = authHeader.split(' ')[1];
+      if (!token) {
+        return res.status(401).json({ message: 'Token is missing' });
+      }
+
+      const response = await fetch('http://go:8088/projects', {
         headers: {
-          'Authorization': 'Bearer 1'
+          'Authorization': `Bearer ${token}`
         }
       });
 
@@ -13,7 +22,6 @@ export default async function handler(req, res) {
       }
 
       const data = await response.json();
-      console.log(data);
       res.status(200).json(data);
     } catch (error) {
       console.error('Error fetching data from Go backend:', error);

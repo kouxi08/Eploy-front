@@ -13,11 +13,12 @@ const Header = () => {
   };
 
   const handleAccountSetting = () => {
-    router.push('/accountsetting'); 
+    router.push('/accountsetting');
   };
 
   const handleLogout = () => {
-    console.log('Logging out...');
+    localStorage.removeItem('token');
+    router.push('/users/login');
   };
 
   return (
@@ -42,7 +43,7 @@ const Header = () => {
         <Link href="/dashboard">dashboard</Link>
         <Link href="/create">Create</Link>
         <Link href="/deploy">Deploy</Link>
-        <Link href="#">Document</Link>
+        <Link href="/Document">Document</Link>
       </nav>
     </header>
   );

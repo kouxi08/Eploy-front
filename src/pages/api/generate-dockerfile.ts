@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 
 const handler = async(req: any, res: any) => {
-    const {nodeVersion, packageManager, workDir, port} = req.body;
+    const {nodeVersion, packageManager, workDir, port, envFields} = req.body;
 
     interface PackageManagerCommands {
         packageCopyCommand: string;
@@ -46,16 +46,31 @@ const handler = async(req: any, res: any) => {
         const data = await fs.readFile(jsonFilePath, 'utf8');
         const config = JSON.parse(data);
 
+        const parsedEnvFields = JSON.parse(envFields);
+
         const lines = [
             `${config.version}${nodeVersion}`,
-            `${config.workdir}${workDir}`,
+            `${config.workdir}${workDir}\n`,
             `${config.copycommand}${selectedPackageManager.packageCopyCommand}`,
-            `${config.copycommand}${config.copydir}`,
-            `${config.runcommand}${selectedPackageManager.installCommand}`,
-            `${config.cmdcommand}${selectedPackageManager.startCommand}`,
+            `${config.copycommand}${config.copydir}\n`,
+        ];
+
+        if(parsedEnvFields.length > 0) {
+            parsedEnvFields .forEach((env:any) => {
+                lines.push(`${config.arg}${env.name}`);
+            });
+            lines.push("")
+            parsedEnvFields.forEach((env:any) => {
+                lines.push(`${config.env}${env.name}=&{${env.name}}`);
+            });
+            lines.push("")
+        }
+
+        lines.push( `${config.runcommand}${selectedPackageManager.installCommand}`,
+            `${config.cmdcommand}${selectedPackageManager.startCommand}\n`,
             `${config.port}${port}`,
             `${config.expose}${port}`
-        ];
+        )
 
         const textData = lines.join('\n');
 

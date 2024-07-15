@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 
 const DeployPage: React.FC = () => {
   const [showEnvFields, setShowEnvFields] = useState(false);
-  const [envFields, setEnvFields] = useState([{ id: 0, name: '', value: '' }]);
+  const [envFields, setEnvFields] = useState([{ id: 0, name: '' }]);
   const [nodeVersion, setNodeVersion] = useState('latest');
   const [packageManager, setPackageManager] = useState('npm');
   const [workDir, setWorkDir] = useState('');
@@ -14,12 +14,14 @@ const DeployPage: React.FC = () => {
   const router = useRouter();
   
   const handleSubmit = (event: any) => {
+
+    const filteredEnvFields = envFields.filter(env => env.name !== '');
     const workDirValue = workDir.trim() || '/app';
     event.preventDefault();
 
     router.push({
       pathname: '/create/generated-dockerfile',
-      query: { nodeVersion, packageManager, workDir: workDirValue, port },
+      query: { nodeVersion, packageManager, workDir: workDirValue, port, envFields: JSON.stringify(filteredEnvFields)},
     });
   };
 
@@ -34,10 +36,10 @@ const DeployPage: React.FC = () => {
 
   const addEnvField = () => {
     const nextId = envFields.length > 0 ? envFields[envFields.length - 1].id + 1 : 0;
-    setEnvFields([...envFields, { id: nextId, name: '', value: '' }]);
+    setEnvFields([...envFields, { id: nextId, name: ''}]);
   };
 
-  const handleEnvFieldChange = (id: number, fieldName: 'name' | 'value', value: string) => {
+  const handleEnvFieldChange = (id: number, fieldName: 'name', value: string) => {
     const newEnvFields = [...envFields];
     const index = newEnvFields.findIndex((env) => env.id === id);
     if (index !== -1) {
@@ -102,12 +104,11 @@ const DeployPage: React.FC = () => {
                 />
                 <label className={styles.label}>Environmental Variables</label>
               </div>
-              <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '100px' : '0' }}>
+              <div className={styles.envFieldsContainer} style={{ maxHeight: showEnvFields ? '200px' : '0' }}>
                 {showEnvFields &&
                   envFields.map((env, index) => (
                     <div key={index} className={styles.envContainer}>
                       <input type="text" placeholder="Name" className={styles.input} value={env.name} onChange={(e) => handleEnvFieldChange(env.id, 'name', e.target.value)} />
-                      <input type="text" placeholder="Value" className={styles.input} value={env.value} onChange={(e) => handleEnvFieldChange(env.id, 'value', e.target.value)} />
                       {index === envFields.length - 1 ? (
                         <button type="button" className={`${styles.button} ${styles.addButton}`} onClick={addEnvField}>
                           Add

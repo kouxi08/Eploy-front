@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  padding-top: 60px; /* 固定ヘッダーに合わせてパディングを調整 */
+  padding-top: 150px; /* 固定ヘッダーに合わせてパディングを調整 */
 }
 
 .header {

@@ -1,24 +1,22 @@
 // src/pages/index.tsx
 import { GetServerSideProps } from 'next';
-import React from 'react';
 
 interface HomeProps {
   data: string;
 }
 
-const HomePage: React.FC<HomeProps> = ({ data }) => {
-  return <div>{data}</div>;
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  // ここでデータをフェッチ
-  const data = 'Hello, World!';
+export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
-    props: {
-      data,
+    redirect: {
+      destination: '/users/login',
+      permanent: false, // 一時的なリダイレクトの場合はfalse、恒久的な場合はtrue
     },
   };
+};
+
+const HomePage = () => {
+  return null; // このコンポーネントは表示されませんが、エクスポートする必要があります
 };
 
 export default HomePage;

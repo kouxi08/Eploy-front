@@ -6,5 +6,7 @@
     "cmdcommand": "CMD ",
     "copydir": ". .",
     "port": "ENV PORT=",
-    "expose": "EXPOSE "   
+    "expose": "EXPOSE ",
+    "env": "ENV ",
+    "arg": "ARG "
 }
