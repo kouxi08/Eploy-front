@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   const handleCardClick = (app) => {
     router.push({
-      pathname: '/application-detail',
+      pathname: '/applicationDetailPage',
       query: { id: app.id }
     });
   };
@@ -76,15 +76,17 @@ const Dashboard = () => {
         </div>
         <div className={styles.cards}>
           {filteredApplications.map((app, index) => (
-            <ApplicationCard
-              key={index}
-              id={app.id} // assuming each application has a unique id
-              name={app.name}
-              url={app.domain}
-              status={app.status}
-              link={app.domain}
-              github={app.git_repo_url}
-            />
+            <div key={index} onClick={() => handleCardClick(app)}>
+              <ApplicationCard
+                key={index}
+                id={app.id} // assuming each application has a unique id
+                name={app.name}
+                url={app.domain}
+                status={app.status}
+                link={app.domain}
+                github={app.git_repo_url}
+              />
+            </div>
           ))}
         </div>
       </div>
