@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../styles/Dashboard.module.css';
 import Header from '../components/Header';
 import ApplicationCard from '../components/ApplicationCard';
@@ -7,6 +8,7 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [applications, setApplications] = useState([]);
   const [filteredApplications, setFilteredApplications] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchApplications = async () => {
@@ -51,6 +53,13 @@ const Dashboard = () => {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleCardClick = (app) => {
+    router.push({
+      pathname: '/application-detail',
+      query: { id: app.id }
+    });
   };
 
   return (

@@ -145,6 +145,7 @@
 .icon {
   width: 24px;
   height: 24px;
+  margin-bottom: 2.5px;
 }
 
 .loadingOverlay {
