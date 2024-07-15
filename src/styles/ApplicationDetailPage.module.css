@@ -1,0 +1,93 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    padding-top: 60px; /* Adjust according to your fixed header height */
+}
+
+.detailContainer {
+    width: 800px;
+    padding: 20px;
+    margin-top: 45px;
+}
+
+.link {
+    font-size: 16px;
+    font-weight: 100;
+    font-family: Arial, sans-serif;
+    color: #707070;
+    margin-left: -120px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 100;
+    font-family: Arial, sans-serif;
+    color: #707070;
+    margin-bottom: 45px;
+    margin-top: 15px;
+    margin-left: -120px;
+}
+
+.infoContainer {
+    margin-bottom: 20px;
+    margin-left: -105px;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.label {
+    color: #707070;
+    margin-bottom: 10px;
+}
+
+.value {
+    color: #707070;
+    margin-right: 250px;
+}
+
+.value1 {
+    color: #707070;
+    margin-right: 331px;
+}
+
+.value2 {
+    color: #707070;
+    margin-right: 503px;
+}
+
+.accessLogContainer {
+    margin-bottom: 20px;
+    margin-left: -105px;
+}
+
+.graph {
+    width: 100%;
+    height: 220px;
+    margin-left: 10px;
+}
+
+.deleteButton {
+    background-color: #FF0A0A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 615px;
+}
+
+.divider {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #777777;
+    width: 100%;
+    margin-left: -15px;
+    margin-bottom: 30px;
+}

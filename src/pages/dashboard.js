@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styles from '../styles/Dashboard.module.css';
 import Header from '../components/Header';
 import ApplicationCard from '../components/ApplicationCard';
@@ -7,15 +8,12 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [applications, setApplications] = useState([]);
   const [filteredApplications, setFilteredApplications] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        // const token = localStorage.getItem('token');
-        // if (!token) {
-        //   throw new Error('No token found');
-        // }
-        const token = "1"
+        const token = "1";
         const response = await fetch('/api/dashboardapi', {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -53,6 +51,13 @@ const Dashboard = () => {
     setSearchTerm(event.target.value);
   };
 
+  const handleCardClick = (app) => {
+    router.push({
+      pathname: '/application-detail',
+      query: { id: app.id }
+    });
+  };
+
   return (
     <div className={styles.mainContainer}>
       <Header />
@@ -67,15 +72,16 @@ const Dashboard = () => {
         </div>
         <div className={styles.cards}>
           {filteredApplications.map((app, index) => (
-            <ApplicationCard
-              key={index}
-              id={app.id} // assuming each application has a unique id
-              name={app.application_name}
-              url={app.domain}
-              status={app.status}
-              link={app.domain}
-              github={app.github_url}
-            />
+            <div key={index} onClick={() => handleCardClick(app)}>
+              <ApplicationCard
+                id={app.id}
+                name={app.application_name}
+                url={app.domain}
+                status={app.status}
+                link={app.domain}
+                github={app.github_url}
+              />
+            </div>
           ))}
         </div>
       </div>
