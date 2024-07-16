@@ -1,100 +1,100 @@
 {
-  "sites": [
-    {
-      "application_name": "APP1",
-      "domain": "non-deri.kouxi.com",
-      "github_url": "https://github.com/kouxi08/pixivbot",
-      "status": "running"
-    },
-    {
-      "application_name": "APP2",
-      "domain": "bronze.kouxi.com",
-      "github_url": "https://github.com/kouxi08/pixivfanbox",
-      "status": "running"
-    },
-    {
-      "application_name": "APP3",
-      "domain": "muromuro.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "ContainerCreating"
-    },
-    {
-      "application_name": "APP4",
-      "domain": "test.kouxi.jp",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "running"
-    },
-    {
-      "application_name": "APP5",
-      "domain": "now.loading.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "Error"
-    },
-    {
-      "application_name": "APP6",
-      "domain": "deploy.ecc-comp.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "Unknown"
-    },
-    {
-      "application_name": "APP7",
-      "domain": "hoge.hage.jp",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "running"
-    },
-    {
-      "application_name": "APP8",
-      "domain": "muromuro.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "ContainerCreating"
-    },
-    {
-      "application_name": "APP9",
-      "domain": "test.kouxi.jp",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "running"
-    },
-    {
-      "application_name": "APP10",
-      "domain": "now.loading.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "Error"
-    },
-    {
-      "application_name": "APP11",
-      "domain": "deploy.ecc-comp.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "Unknown"
-    },
-    {
-      "application_name": "APP12",
-      "domain": "hoge.hage.jp",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "running"
-    },
-    {
-      "application_name": "APP8",
-      "domain": "muromuro.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "ContainerCreating"
-    },
-    {
-      "application_name": "APP9",
-      "domain": "test.kouxi.jp",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "running"
-    },
-    {
-      "application_name": "APP10",
-      "domain": "now.loading.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "Error"
-    },
-    {
-      "application_name": "APP11",
-      "domain": "deploy.ecc-comp.com",
-      "github_url": "https://github.com/kouxi08/hakuhatu",
-      "status": "Unknown"
-    }
-  ]
+    "sites": [
+        {
+            "application_name": "APP1",
+            "domain": "non-deri.kouxi.com",
+            "github_url": "https://github.com/kouxi08/pixivbot",
+            "status": "running"
+        },
+        {
+            "application_name": "APP2",
+            "domain": "bronze.kouxi.com",
+            "github_url": "https://github.com/kouxi08/pixivfanbox",
+            "status": "running"
+        },
+        {
+            "application_name": "APP3",
+            "domain": "muromuro.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "ContainerCreating"
+        },
+        {
+            "application_name": "APP4",
+            "domain": "test.kouxi.jp",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "running"
+        },
+        {
+            "application_name": "APP5",
+            "domain": "now.loading.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "Error"
+        },
+        {
+            "application_name": "APP6",
+            "domain": "deploy.ecc-comp.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "Unknown"
+        },
+        {
+            "application_name": "APP7",
+            "domain": "hoge.hage.jp",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "running"
+        },
+        {
+            "application_name": "APP8",
+            "domain": "muromuro.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "ContainerCreating"
+        },
+        {
+            "application_name": "APP9",
+            "domain": "test.kouxi.jp",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "running"
+        },
+        {
+            "application_name": "APP10",
+            "domain": "now.loading.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "Error"
+        },
+        {
+            "application_name": "APP11",
+            "domain": "deploy.ecc-comp.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "Unknown"
+        },
+        {
+            "application_name": "APP12",
+            "domain": "hoge.hage.jp",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "running"
+        },
+        {
+            "application_name": "APP8",
+            "domain": "muromuro.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "ContainerCreating"
+        },
+        {
+            "application_name": "APP9",
+            "domain": "test.kouxi.jp",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "running"
+        },
+        {
+            "application_name": "APP10",
+            "domain": "now.loading.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "Error"
+        },
+        {
+            "application_name": "APP11",
+            "domain": "deploy.ecc-comp.com",
+            "github_url": "https://github.com/kouxi08/hakuhatu",
+            "status": "Unknown"
+        }
+    ]
 }

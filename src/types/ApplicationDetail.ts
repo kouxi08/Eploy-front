@@ -5,4 +5,3 @@ export interface ApplicationDetail {
     created_at: string;
     domain: string;
 }
-  
