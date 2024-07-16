@@ -5,9 +5,9 @@
     justify-content: center;
     height: 100vh;
     padding-top: 60px; /* 固定ヘッダーに合わせてパディングを調整 */
-  }
-  
-  .header {
+}
+
+.header {
     width: 100%;
     height: 60px; /* 固定ヘッダーの高さを調整 */
     background-color: #ffffff;
@@ -20,43 +20,41 @@
     top: 0;
     left: 0;
     z-index: 1000;
-  }
-  
-  .formContainer {
+}
+
+.formContainer {
     width: 1000px;
     padding: 20px;
     border: 1px solid #d0caca;
     border-radius: 8px;
     background-color: #f9f9f9;
     color: #707070;
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 30px;
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     color: #707070;
     margin-bottom: 20px;
     margin-top: 0;
-    text-align: left;  
+    text-align: left;
     margin: 0px 0px 50px;
-  }
-  
+}
 
-  
-  .formGroup {
+.formGroup {
     display: flex;
     flex-direction: column; /* 各ラベルと入力フィールドを垂直に配置 */
     flex: 1 1 48%; /* 各フォームグループが48%の幅を占め、成長・縮小を許可 */
     margin-bottom: 20px; /* 各フォームグループ間のスペースを追加 */
-  }
-  
-  .label {
+}
+
+.label {
     margin-bottom: 5px;
     font-weight: bold;
-  }
-  
-  .docker{
+}
+
+.docker {
     width: 900px;
     height: 350px;
     background-color: #414141;
@@ -68,25 +66,24 @@
     overflow-x: auto; /* 横スクロールバーを表示 */
     border-radius: 10px; /* 角を丸くする */
     margin: 0 0 40px;
-  }
-  
-  .lineNumber {
+}
+
+.lineNumber {
     display: inline-block;
     width: 40px; /* 行番号の幅 */
     text-align: right; /* 右寄せ */
     margin-right: 10px; /* 行番号と｜の間隔 */
 }
-  
-  
-  .dockerfilebox{
-    margin: 0 30px 50px;
-  }
 
-  .dockerfilebox p {
+.dockerfilebox {
+    margin: 0 30px 50px;
+}
+
+.dockerfilebox p {
     margin-top: 40px;
 }
-  
-  .button {
+
+.button {
     width: 900px;
     padding: 10px;
     border: none;
@@ -96,24 +93,23 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     background-color: #444;
-  }
-  
-  .addButton {
+}
+
+.addButton {
     width: auto; /* 必要なスペースのみを占有 */
     margin-top: 10px; /* 入力フィールドと追加ボタンの間にスペースを追加 */
-  }
-  
-  .envContainer {
+}
+
+.envContainer {
     display: flex;
     align-items: center;
     gap: 10px; /* 環境変数の入力フィールド間のスペースを追加 */
-  }
-  
-  .envInput {
+}
+
+.envInput {
     flex: 1;
-  }
-  
+}

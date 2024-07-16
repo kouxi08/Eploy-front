@@ -1,152 +1,149 @@
 .pageContainer {
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100vh;
-  padding-top: 150px; /* 固定ヘッダーに合わせてパディングを調整 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding-top: 150px; /* 固定ヘッダーに合わせてパディングを調整 */
 }
 
 .header {
-  width: 100%;
-  height: 60px; /* 固定ヘッダーの高さを調整 */
-  background-color: #ffffff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+    width: 100%;
+    height: 60px; /* 固定ヘッダーの高さを調整 */
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .formContainer {
-  width: 1000px;
-  padding: 20px;
-  border: 1px solid #d0caca;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  color: #707070;
-  position: sticky;
-  overflow: scroll;
-  margin-top: 65px;
+    width: 1000px;
+    padding: 20px;
+    border: 1px solid #d0caca;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #707070;
+    position: sticky;
+    overflow: scroll;
+    margin-top: 65px;
 }
 
 .title {
-  font-size: 30px;
-  font-weight: 100; /* Regularフォントウェイト */
-  font-family: Arial, sans-serif; /* 任意のフォントファミリ */
-  color: #707070;
-  margin-top: 0;
-  text-align: left;
-  position: sticky;
-  top: 120px; /* Account for fixed header height */
-  padding: 10px 0; /* Ensure the sticky title has padding */
-  z-index: 100;
+    font-size: 30px;
+    font-weight: 100; /* Regularフォントウェイト */
+    font-family: Arial, sans-serif; /* 任意のフォントファミリ */
+    color: #707070;
+    margin-top: 0;
+    text-align: left;
+    position: sticky;
+    top: 120px; /* Account for fixed header height */
+    padding: 10px 0; /* Ensure the sticky title has padding */
+    z-index: 100;
 }
 
 .form {
-  display: flex;
-  flex-wrap: wrap; /* フォームを2列に配置 */
-  gap: 2%; /* フォームグループ間のスペースを追加 */
-  width: 100%; /* フォームが全幅を使用するように */
+    display: flex;
+    flex-wrap: wrap; /* フォームを2列に配置 */
+    gap: 2%; /* フォームグループ間のスペースを追加 */
+    width: 100%; /* フォームが全幅を使用するように */
 }
 
 .formGroup {
-  display: flex;
-  flex-direction: column; /* 各ラベルと入力フィールドを垂直に配置 */
-  flex: 1 1 48%; /* 各フォームグループが48%の幅を占め、成長・縮小を許可 */
-  margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* 各ラベルと入力フィールドを垂直に配置 */
+    flex: 1 1 48%; /* 各フォームグループが48%の幅を占め、成長・縮小を許可 */
+    margin-bottom: 20px;
 }
 
 .label {
-  margin-bottom: 5px;
-  font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 .input {
-  width: 100%; /* 入力フィールドがフォームグループの全幅を使用するように */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin: 0px 0px 10px;
-  border-radius: 10px;
+    width: 100%; /* 入力フィールドがフォームグループの全幅を使用するように */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 0px 0px 10px;
+    border-radius: 10px;
 }
 
 .pulldown {
-  width: 100%;
-  margin: 0px 0px 10px;
+    width: 100%;
+    margin: 0px 0px 10px;
 }
 
 .pulldown select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-  background-color: white;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
-.pulldown option{
-  margin-left: 10px;
+.pulldown option {
+    margin-left: 10px;
 }
 
 .button {
-  width: 100%; 
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #555;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 0px 0px 20px;
-  border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0px 0px 20px;
+    border-radius: 10px;
 }
 
 .button:hover {
-  background-color: #444;
+    background-color: #444;
 }
 
 .addButton {
-  width: auto; /* 必要なスペースのみを占有 */
-  margin-top: 10px; /* 入力フィールドと追加ボタンの間にスペースを追加 */
+    width: auto; /* 必要なスペースのみを占有 */
+    margin-top: 10px; /* 入力フィールドと追加ボタンの間にスペースを追加 */
 }
 
 .envContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* 環境変数の入力フィールド間のスペースを追加 */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 環境変数の入力フィールド間のスペースを追加 */
 }
 
 .envInput {
-  flex: 1;
+    flex: 1;
 }
 
 .envFieldsContainer {
-  overflow: auto; /* Use auto to enable scrolling when content exceeds max-height */
-  max-height: 300px; /* Initial max-height */
-  transition: max-height 0.3s ease-in-out;
-  margin-top: 0px; /* Add margin to separate from above content */
+    overflow: auto; /* Use auto to enable scrolling when content exceeds max-height */
+    max-height: 300px; /* Initial max-height */
+    transition: max-height 0.3s ease-in-out;
+    margin-top: 0px; /* Add margin to separate from above content */
 }
 
 .envToggle {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 2.5px;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 2.5px;
 }
-
-

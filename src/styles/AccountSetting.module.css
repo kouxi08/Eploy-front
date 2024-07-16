@@ -1,74 +1,72 @@
 .mainContainer {
     height: 100%;
-  }
-  
-  .contentContainer {
+}
+
+.contentContainer {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     /* background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 30px;
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     color: #707070;
     margin-bottom: 35px;
     margin-top: 0;
-    text-align: left; 
-    margin-left: -250px; 
+    text-align: left;
+    margin-left: -250px;
     margin-top: 100px;
-  }
+}
 
-  
-  
-  .settings {
+.settings {
     display: flex;
     flex-direction: column;
-  }
-  
-  .settingSection {
+}
+
+.settingSection {
     color: #707070;
     width: 100%;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .settingSection h2{
+.settingSection h2 {
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     margin-left: -170px;
-    color: #2A2A2A;
-  }
+    color: #2a2a2a;
+}
 
-  .settingSection1 h2{
+.settingSection1 h2 {
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     margin-left: -170px;
-    color: #DB0202;
-  }
+    color: #db0202;
+}
 
-  .settingSection p {
+.settingSection p {
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     margin-left: -160px;
     margin-top: 15px;
-    color: #2A2A2A;
-  }
+    color: #2a2a2a;
+}
 
-  .settingSection1 p {
+.settingSection1 p {
     font-weight: 100; /* Regularフォントウェイト */
     font-family: Arial, sans-serif; /* 任意のフォントファミリ */
     margin-left: -160px;
     margin-top: 15px;
-    color: #DB0202;
-  }
-  
-  .input {
+    color: #db0202;
+}
+
+.input {
     flex: 1;
     padding: 8px;
     margin-top: 35px;
@@ -76,19 +74,19 @@
     border-radius: 8px;
     margin-right: 10px;
     margin-left: -160px;
-  }
+}
 
-  .input::placeholder {
+.input::placeholder {
     color: #919191; /* 薄いグレー色 */
     opacity: 3; /* プレースホルダーの透明度 */
-  }
-  
-  .buttonContainer {
+}
+
+.buttonContainer {
     display: flex;
     justify-content: flex-end;
-  }
-  
-  .button {
+}
+
+.button {
     padding: 10px 20px;
     background-color: #ffffff;
     margin-top: 35px;
@@ -97,32 +95,31 @@
     cursor: pointer;
     border-radius: 8px;
     margin-left: 400px;
-  }
-  
-  .settingRow {
+}
+
+.settingRow {
     display: flex;
     align-items: center;
     width: 120%;
-  }
-  
-  
-  .button:hover {
+}
+
+.button:hover {
     background-color: white;
-  }
-  
-  .divider {
+}
+
+.divider {
     margin: 20px 0;
     border: none;
     border-top: 1px solid #000000;
     margin-left: -250px;
     width: 190%;
-  }
-  
-  .deleteTitle {
+}
+
+.deleteTitle {
     color: red;
-  }
-  
-  .deleteButton {
+}
+
+.deleteButton {
     padding: 10px 20px;
     background-color: #ff0a0a;
     color: white;
@@ -130,80 +127,79 @@
     cursor: pointer;
     border-radius: 8px;
     margin-right: -180px;
-  }
-  
-  .deleteButton:hover {
-    background-color: #d00909;
-  }
-  
-  /* レスポンシブデザイン */
-  @media (max-width: 1200px) {
-    .contentContainer {
-      max-width: 50%; 
-      margin-left: auto; 
-      margin-right: auto; 
-    }
-  
-    .title {
-      font-size: 22px;
-    }
-  
-    .input {
-      padding: 6px;
-    }
-  
-    .button {
-      padding: 8px 16px;
-    }
-  
-    .deleteButton {
-      padding: 8px 16px;
-    }
-  }
+}
 
-  @media (max-width: 768px) {
+.deleteButton:hover {
+    background-color: #d00909;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 1200px) {
     .contentContainer {
-      padding: 15px;
+        max-width: 50%;
+        margin-left: auto;
+        margin-right: auto;
     }
-  
+
     .title {
-      font-size: 20px;
-      margin-left: -20px; 
+        font-size: 22px;
     }
-  
+
     .input {
-      padding: 6px;
+        padding: 6px;
     }
-  
+
     .button {
-      padding: 8px 16px;
+        padding: 8px 16px;
     }
-  
+
     .deleteButton {
-      padding: 8px 16px;
+        padding: 8px 16px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
     .contentContainer {
-      padding: 10px;
+        padding: 15px;
     }
-  
+
     .title {
-      font-size: 18px;
-      margin-left: 0; /* モバイルデバイスでのマージン調整 */
+        font-size: 20px;
+        margin-left: -20px;
     }
-  
+
     .input {
-      padding: 4px;
+        padding: 6px;
     }
-  
+
     .button {
-      padding: 6px 12px;
+        padding: 8px 16px;
     }
-  
+
     .deleteButton {
-      padding: 6px 12px;
+        padding: 8px 16px;
     }
-  }
-  
+}
+
+@media (max-width: 480px) {
+    .contentContainer {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 18px;
+        margin-left: 0; /* モバイルデバイスでのマージン調整 */
+    }
+
+    .input {
+        padding: 4px;
+    }
+
+    .button {
+        padding: 6px 12px;
+    }
+
+    .deleteButton {
+        padding: 6px 12px;
+    }
+}
