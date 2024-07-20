@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import styles from '../../styles/create.module.css';
+import React from 'react';
 import Header from '../../components/Header';
 
 const DeployPage: React.FC = () => {

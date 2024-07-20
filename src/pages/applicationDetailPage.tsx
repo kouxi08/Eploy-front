@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from '../styles/ApplicationDetailPage.module.css';
 import Header from '../components/Header';
