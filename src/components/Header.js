@@ -54,7 +54,7 @@ const Header = () => {
             </div>
 
             <nav className={styles.nav}>
-                <Link href="/dashboard">dashboard</Link>
+                <Link href="/dashboard">Dashboard</Link>
                 <Link href="/create">Create</Link>
                 <Link href="/deploy">Deploy</Link>
                 <Link href="/Document">Document</Link>

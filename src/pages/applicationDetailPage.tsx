@@ -37,7 +37,12 @@ const ApplicationDetailPage = () => {
         const fetchApplicationDetail = async () => {
             if (!id) return;
             try {
-                const response = await fetch(`/api/application-detail/${id}`);
+                const token = localStorage.getItem('token');
+                const response = await fetch(`/api/application-detail/${id}`,{
+                    headers: {
+                      'Authorization': `Bearer ${token}`
+                    }
+                  });
                 if (!response.ok) {
                     throw new Error(
                         `Error fetching data: ${response.statusText}`,
@@ -94,18 +99,18 @@ const ApplicationDetailPage = () => {
                     Dashboard/
                 </Link>
                 <h1 className={styles.title}>
-                    {applicationDetail.application_name}
+                    {applicationDetail.name}
                 </h1>
                 <div className={styles.infoContainer}>
                     <div className={styles.infoRow}>
                         <span className={styles.label}>Git Hub URL</span>
                         <span className={styles.value}>
                             <a
-                                href={applicationDetail.github_url}
+                                href={applicationDetail.git_repo_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {applicationDetail.github_url}
+                                {applicationDetail.git_repo_url}
                             </a>
                         </span>
                     </div>
@@ -122,7 +127,9 @@ const ApplicationDetailPage = () => {
                     <div className={styles.infoRow}>
                         <span className={styles.label}>Domain</span>
                         <span className={styles.value}>
-                            {applicationDetail.domain}
+                            <a href={applicationDetail.domain} target="_blank" rel="noopener noreferrer">
+                                {applicationDetail.domain}
+                            </a>
                         </span>
                     </div>
                     <hr className={styles.divider} />
