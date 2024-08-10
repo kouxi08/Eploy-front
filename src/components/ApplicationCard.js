@@ -7,7 +7,8 @@ const ApplicationCard = ({ id, name, url, status, link, github }) => {
     const statusClasses = {
         Running: styles.running,
         ContainerCreating: styles.containercreating,
-        Pending: styles.containercreating,
+        AppCreating: styles.containercreating,
+        Pending: styles.unknown,
         Error: styles.error,
         Unknown: styles.unknown,
     };
@@ -15,7 +16,8 @@ const ApplicationCard = ({ id, name, url, status, link, github }) => {
     const statusIcons = {
         Running: '/icons/Runningicon.png',
         ContainerCreating: '/icons/ContainerCreatingIcon.png',
-        Pending: '/icons/ContainerCreatingIcon.png',
+        AppCreating: '/icons/ContainerCreatingIcon.png',
+        Pending: '/icons/UnknownIcon.png',
         Error: '/icons/ErrorIcon.png',
         Unknown: '/icons/UnknownIcon.png',
     };
