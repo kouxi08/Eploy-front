@@ -14,7 +14,7 @@ const ApplicationCard = ({ id, name, url, status, link, github }) => {
     };
 
     const statusIcons = {
-        Running: '/icons/Runningicon.png',
+        Running: '/icons/RunningIcon.png',
         ContainerCreating: '/icons/ContainerCreatingIcon.png',
         AppCreating: '/icons/ContainerCreatingIcon.png',
         Pending: '/icons/UnknownIcon.png',
