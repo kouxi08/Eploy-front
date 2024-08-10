@@ -33,6 +33,7 @@ const ApplicationDetailPage = () => {
     const [applicationDetail, setApplicationDetail] =
         useState<ApplicationDetail | null>(null);
 
+    // 詳細情報の取得
     useEffect(() => {
         const fetchApplicationDetail = async () => {
             if (!id) return;
@@ -54,7 +55,6 @@ const ApplicationDetailPage = () => {
                 console.error('Error fetching application details:', error);
             }
         };
-
         fetchApplicationDetail();
     }, [id]);
 
@@ -62,6 +62,34 @@ const ApplicationDetailPage = () => {
         return <div>Loading...</div>;
     }
 
+    //削除ボタン処理
+    const deleteApplication = async (event: React.FormEvent) => {
+        event.preventDefault();
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('No token found');
+            }
+
+            const response = await fetch(`/api/delete-application/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to deploy: ' + response.statusText);
+            }
+            const data = await response.json();
+            router.push('/dashboard');
+        } catch (error) {
+            console.error('Error fetching applications:', error);
+        }
+    };
+
+    //グラフ描画変数
     const data = {
         labels: [
             'January',
@@ -140,7 +168,7 @@ const ApplicationDetailPage = () => {
                         <Line data={data} options={options} />
                     </div>
                 </div>
-                <button className={styles.deleteButton}>
+                <button onClick={deleteApplication} className={styles.deleteButton}>
                     Delete Application
                 </button>
             </div>

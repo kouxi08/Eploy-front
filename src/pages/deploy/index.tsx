@@ -49,7 +49,6 @@ const DeployPage: React.FC = () => {
             }
             const data = await response.json();
             console.log('Deployment successful:', data);
-            console.log('aaa');
             setLoading(false);
             router.push('/dashboard');
         } catch (error) {
