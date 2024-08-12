@@ -57,15 +57,6 @@ const DeployPage: React.FC = () => {
         }
     };
 
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            router.push('/dashboard');
-        }, 10000); // 2 seconds delay
-    };
-
     const addEnvField = () => {
         const nextId =
             envFields.length > 0 ? envFields[envFields.length - 1].id + 1 : 0;
@@ -95,7 +86,7 @@ const DeployPage: React.FC = () => {
     };
 
     const handlePortChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = parseInt(event.target.value, 10); // 入力値を整数に変換
+        const value = parseInt(event.target.value.replace(/\s+/g, ''), 10); // 入力値を整数に変換
         setPort(value);
     };
 
@@ -122,7 +113,11 @@ const DeployPage: React.FC = () => {
                             <input
                                 type="text"
                                 id="gitRepoUrl"
-                                onChange={(e) => setgitUrl(e.target.value)}
+                                onChange={(e) =>
+                                    setgitUrl(
+                                        e.target.value.replace(/\s+/g, ''),
+                                    )
+                                }
                                 className={styles.input}
                                 required
                             />
@@ -135,7 +130,11 @@ const DeployPage: React.FC = () => {
                             <input
                                 type="text"
                                 id="appName"
-                                onChange={(e) => setappName(e.target.value)}
+                                onChange={(e) =>
+                                    setappName(
+                                        e.target.value.replace(/\s+/g, ''),
+                                    )
+                                }
                                 className={styles.input}
                                 required
                             />
@@ -164,7 +163,11 @@ const DeployPage: React.FC = () => {
                             <input
                                 type="text"
                                 id="dockerfileDir"
-                                onChange={(e) => setdockerDir(e.target.value)}
+                                onChange={(e) =>
+                                    setdockerDir(
+                                        e.target.value.replace(/\s+/g, ''),
+                                    )
+                                }
                                 className={styles.input}
                                 required
                             />
@@ -209,7 +212,10 @@ const DeployPage: React.FC = () => {
                                                     handleEnvFieldChange(
                                                         env.id,
                                                         'name',
-                                                        e.target.value,
+                                                        e.target.value.replace(
+                                                            /\s+/g,
+                                                            '',
+                                                        ),
                                                     )
                                                 }
                                             />
@@ -222,7 +228,10 @@ const DeployPage: React.FC = () => {
                                                     handleEnvFieldChange(
                                                         env.id,
                                                         'value',
-                                                        e.target.value,
+                                                        e.target.value.replace(
+                                                            /\s+/g,
+                                                            '',
+                                                        ),
                                                     )
                                                 }
                                             />

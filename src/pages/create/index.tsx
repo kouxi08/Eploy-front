@@ -126,7 +126,11 @@ const DeployPage: React.FC = () => {
                             <input
                                 value={workDir}
                                 placeholder="/app"
-                                onChange={(e) => setWorkDir(e.target.value)}
+                                onChange={(e) =>
+                                    setWorkDir(
+                                        e.target.value.replace(/\s+/g, ''),
+                                    )
+                                }
                                 className={styles.input}
                             />
                         </div>
@@ -137,7 +141,9 @@ const DeployPage: React.FC = () => {
                             </label>
                             <input
                                 value={port}
-                                onChange={(e) => setPort(e.target.value)}
+                                onChange={(e) =>
+                                    setPort(e.target.value.replace(/\s+/g, ''))
+                                }
                                 required
                                 className={styles.input}
                             />
@@ -182,7 +188,10 @@ const DeployPage: React.FC = () => {
                                                     handleEnvFieldChange(
                                                         env.id,
                                                         'name',
-                                                        e.target.value,
+                                                        e.target.value.replace(
+                                                            /\s+/g,
+                                                            '',
+                                                        ),
                                                     )
                                                 }
                                             />
