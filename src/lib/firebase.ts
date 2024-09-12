@@ -16,4 +16,19 @@ const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
 export const googleProvider = new GoogleAuthProvider();
 
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+    try {
+      const idToken = await user.getIdToken(true);
+      localStorage.setItem("token", idToken);
+    } catch (error) {
+      console.error("Error getting ID token:", error);
+    }
+  } else {
+    // ユーザーがログアウトした場合、Cookieを削除
+    localStorage.removeItem("token");
+  }
+});
+
+
 export default firebaseApp; // 既定エクスポート
