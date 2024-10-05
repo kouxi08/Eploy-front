@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 
 const DeployPage: React.FC = () => {
     const [showEnvFields, setShowEnvFields] = useState(false);
-    const [applications, setApplications] = useState([]);
+    const [applications, setApplications] = useState<string[]>([]);
     const [envFields, setEnvFields] = useState([
         { id: 0, name: '', value: '' },
     ]);
@@ -15,10 +15,18 @@ const DeployPage: React.FC = () => {
     const [port, setPort] = useState<number | undefined>(undefined);
     const [dockerDir, setdockerDir] = useState('');
     const [loading, setLoading] = useState(false);
+    const [showDuplicatePopup, setShowDuplicatePopup] = useState(false); // New state for duplicate popup
     const router = useRouter();
 
     const fetchApplications = async (event: React.FormEvent) => {
         event.preventDefault();
+
+        // Check if appName already exists in applications array
+        if (applications.includes(appName)) {
+            setShowDuplicatePopup(true); // Show popup if duplicate
+            return;
+        }
+
         try {
             const token = localStorage.getItem('token');
             if (!token) {
@@ -86,8 +94,13 @@ const DeployPage: React.FC = () => {
     };
 
     const handlePortChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = parseInt(event.target.value.replace(/\s+/g, ''), 10); // 入力値を整数に変換
+        const value = parseInt(event.target.value.replace(/\s+/g, ''), 10); // Convert input value to integer
         setPort(value);
+    };
+
+    // Close popup when 'OK' button is clicked
+    const handleClosePopup = () => {
+        setShowDuplicatePopup(false);
     };
 
     return (
@@ -268,6 +281,24 @@ const DeployPage: React.FC = () => {
                         <div className={styles.loadingSpinner}></div>
                     </div>
                 )}
+                {showDuplicatePopup && (
+                    <div className={styles.popupOverlay}>
+                        <div className={styles.popupContent}>
+                            {/* アイコン部分 */}
+                            <span className={styles.popupIcon}>✖</span>
+                            {/* メッセージ部分 */}
+                            <p>A duplicate application with the same name has been created.</p>
+                            {/* 閉じるボタン */}
+                            <button
+                                className={styles.closeButton}
+                                onClick={handleClosePopup}
+                            >
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                )}
+
             </div>
         </div>
     );
